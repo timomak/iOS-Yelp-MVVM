@@ -15,7 +15,7 @@ class RestaurantViewModel {
     /// Repurposed data  for Cells
     private var cellViewModels: [RestaurantCellViewModel] = [RestaurantCellViewModel]() {
         didSet {
-            self.reloadCollectionViewClosure?()
+            self.reloadTableViewClosure?()
         }
     }
     
@@ -24,8 +24,8 @@ class RestaurantViewModel {
         return cellViewModels.count
     }
     
-    /// Return closure for Completion closures (unused here)
-    var reloadCollectionViewClosure: (()->())?
+    /// Return closure for Completion closures
+    var reloadTableViewClosure: (()->())?
     
     /// Return cell at index value
     func getCellViewModel(at indexPath: IndexPath ) -> RestaurantCellViewModel {
@@ -39,12 +39,14 @@ class RestaurantViewModel {
     }
     
     func getRestaurantRequest() {
-        
+        /// Find more documentation on the API here: https://www.yelp.com/developers/documentation
+        // Set API parameters
         let params: [String:String] = [
             "term": "Pasta",
             "location": "San Francisco"
         ]
         
+        // Yelp URL for business search
         let urlComp = NSURLComponents(string: "https://api.yelp.com/v3/businesses/search")!
         
         var items = [URLQueryItem]()
@@ -69,7 +71,6 @@ class RestaurantViewModel {
         let session = URLSession(configuration: config)
         
         let task = session.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
-            print("Data: \(data), response: \(response), error: \(error)")
             // Check if data was received successfully
             if error == nil && data != nil {
                 do {
@@ -77,6 +78,7 @@ class RestaurantViewModel {
                     let json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:AnyObject]
                     print("Json: ", json)
                     
+                    // MARK: Create restaurant models
                     if let restaurantsData = json["businesses"] as? [[String: Any]] {
                         var restaurantsArray: [Restaurant] = []
                         for restaurant in restaurantsData {
@@ -90,16 +92,13 @@ class RestaurantViewModel {
                             restaurantsArray.append(newRestaurant)
                         }
                         
-                        print("successfully downloaded all objects")
-                        
+                        // Convert model objects to Cell View Models
                         var vms = [RestaurantCellViewModel]()
                         
                         for item in restaurantsArray {
                             vms.append(self.createCellViewModel(item: item) )
                         }
                         self.cellViewModels = vms
-                        self.reloadCollectionViewClosure?()
-                        
                     }
                     
                 } catch {

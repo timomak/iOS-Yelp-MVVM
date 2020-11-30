@@ -13,7 +13,7 @@ class RestaurantCell: UITableViewCell {
     /// Cell identifier
     static var identifier = "RestaurantCell"
     
-    /// Take the data from the viewmodel to put into the UI
+    /// Take the data from the Cell View Model to put into the UI
     var restaurantCellViewModel : RestaurantCellViewModel? {
         didSet {
             self.restaurantImage.downloaded(from: restaurantCellViewModel!.previewImage, contentMode: .scaleAspectFill)
@@ -23,7 +23,7 @@ class RestaurantCell: UITableViewCell {
         }
     }
     
-    /// THE IMAGE OR GIF IN THE MIDDLE FOR EACH CELL OF ONBOARDING
+    /// Restaurant image
     var restaurantImage: UIImageView = {
         var v = UIImageView()
         v.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +36,7 @@ class RestaurantCell: UITableViewCell {
         return v
     }()
     
-    /// Name
+    /// Restaurant Name
     let nameTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -45,12 +45,12 @@ class RestaurantCell: UITableViewCell {
         textView.isScrollEnabled = false
         textView.backgroundColor = .clear
         textView.font = UIFont.boldSystemFont(ofSize: 16.0)
-//        textView.textColor = PSColor.gray.value
+        textView.textColor = UIColor.white
         textView.textAlignment = .center
         return textView
     }()
     
-    /// DESCRIPTION
+    /// Restaurant Details
     let descriptionTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
@@ -58,8 +58,7 @@ class RestaurantCell: UITableViewCell {
         textView.isEditable = false
         textView.isScrollEnabled = false
         textView.backgroundColor = .clear
-//        textView.font = UIFont(name: Font.regular.name, size: CGFloat(Font.small.size))
-//        textView.textColor = PSColor.gray.value
+        textView.textColor = UIColor.gray
         textView.textAlignment = .center
         return textView
     }()

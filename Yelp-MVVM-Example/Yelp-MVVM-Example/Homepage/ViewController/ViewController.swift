@@ -30,7 +30,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         setupTableView()
         
-        viewModel.reloadCollectionViewClosure = {
+        viewModel.reloadTableViewClosure = {
             DispatchQueue.main.async {
                 print("Success")
                 self.tableView.reloadData()
