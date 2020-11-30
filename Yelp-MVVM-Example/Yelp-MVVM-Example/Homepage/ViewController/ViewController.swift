@@ -44,6 +44,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     func setupTableView() {
         tableView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         tableView.isScrollEnabled = true
+        tableView.showsVerticalScrollIndicator = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         tableView.delegate = self
@@ -79,28 +80,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
         //Getting the view model for a cell
         let cellVM = viewModel.getCellViewModel(at: indexPath)
-//        cell.bottomTableViewCellViewModel = cellVM
-//
-//        // Remove cell bottom line
-//        cell.selectionStyle = .none
-//        cell.emptyView.isUserInteractionEnabled = false
-//        cell.sideImage.isUserInteractionEnabled = false
-//        cell.textLabel?.isUserInteractionEnabled = false
-        
         cell.restaurantCellViewModel = cellVM
         
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-//        cell.textLabel?.text = "\(indexPath)"
+        
+        cell.selectionStyle = .none
         cell.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 0)
         return cell
     }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        delegate?.bottomTableViewPressed(at: indexPath.row)
-//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 180
+        return 230
     }
 }
 

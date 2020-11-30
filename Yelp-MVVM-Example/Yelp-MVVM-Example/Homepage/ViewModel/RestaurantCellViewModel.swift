@@ -14,7 +14,7 @@ class RestaurantCellViewModel {
     
     init(name: String, imageURL: String, cost: String, reviews: Int) {
         self.name = name
-        self.previewImage = imageURL        
+        self.previewImage = imageURL
         self.descriptionText = "\(cost), \(reviews) Reviews"
     }
 }

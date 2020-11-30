@@ -109,11 +109,11 @@
 			children = (
 				F37FF92425756AEA0031FB38 /* AppDelegate.swift */,
 				F37FF92625756AEA0031FB38 /* SceneDelegate.swift */,
-				F3C07F9925757301004EAA73 /* UIImageView_Extention.swift */,
 				F37FF95A25756B780031FB38 /* Homepage */,
 				F37FF92D25756AEC0031FB38 /* Assets.xcassets */,
 				F37FF92F25756AEC0031FB38 /* LaunchScreen.storyboard */,
 				F37FF93225756AEC0031FB38 /* Info.plist */,
+				F3C07F9925757301004EAA73 /* UIImageView_Extention.swift */,
 			);
 			path = "Yelp-MVVM-Example";
 			sourceTree = "<group>";

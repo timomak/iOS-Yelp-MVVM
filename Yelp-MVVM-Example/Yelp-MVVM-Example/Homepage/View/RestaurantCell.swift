@@ -16,22 +16,7 @@ class RestaurantCell: UITableViewCell {
     /// Take the data from the viewmodel to put into the UI
     var restaurantCellViewModel : RestaurantCellViewModel? {
         didSet {
-            self.restaurantImage.downloaded(from: restaurantCellViewModel!.previewImage, contentMode: .scaleAspectFit)
-            
-//            let url = URL(string: restaurantCellViewModel!.previewImage)
-//            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-//            self.restaurantImage.image = UIImage(data: data!)
-            
-            // self.restaurantImage.image = #imageLiteral(resourceName: "CashApp")
-//
-//            let url = URL(string: restaurantCellViewModel!.previewImage)
-//
-//            DispatchQueue.global().async {
-//                let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-//                DispatchQueue.main.async {
-//                    self.restaurantImage.image = UIImage(data: data!)
-//                }
-//            }
+            self.restaurantImage.downloaded(from: restaurantCellViewModel!.previewImage, contentMode: .scaleAspectFill)
             
             self.nameTextView.text = restaurantCellViewModel?.name
             self.descriptionTextView.text = restaurantCellViewModel?.descriptionText
@@ -47,6 +32,7 @@ class RestaurantCell: UITableViewCell {
         v.layer.shadowOpacity = 0.3
         v.layer.shadowOffset = CGSize(width: 1, height: 20)
         v.layer.shadowRadius = 10
+        v.clipsToBounds = true
         return v
     }()
     
@@ -96,28 +82,15 @@ class RestaurantCell: UITableViewCell {
         restaurantImage.topAnchor.constraint(equalTo: self.topAnchor, constant: 14).isActive = true
         restaurantImage.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         
-        restaurantImage.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.4).isActive = true
-        restaurantImage.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.8).isActive = true
+        restaurantImage.heightAnchor.constraint(equalToConstant: 150).isActive = true
+        restaurantImage.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        restaurantImage.layer.cornerRadius = 10
         
-        nameTextView.topAnchor.constraint(equalTo: self.restaurantImage.bottomAnchor, constant: 14).isActive = true
+        nameTextView.topAnchor.constraint(equalTo: self.restaurantImage.bottomAnchor, constant: 5).isActive = true
         nameTextView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
         
-        descriptionTextView.topAnchor.constraint(equalTo: self.nameTextView.bottomAnchor, constant: 5).isActive = true
+        descriptionTextView.topAnchor.constraint(equalTo: self.nameTextView.bottomAnchor, constant: -5).isActive = true
         descriptionTextView.leftAnchor.constraint(equalTo: self.nameTextView.leftAnchor).isActive = true
-        
-        
-    
-        
-            
-
-//            phoneFrame.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-//            phoneFrame.centerYAnchor.constraint(equalTo: self.centerYAnchor, constant: -Padding.consecutive.cgFloat()),
-//            phoneFrame.heightAnchor.constraint(equalTo: self.heightAnchor, multiplier: 0.5),
-//
-//            imageView.topAnchor.constraint(equalTo: phoneFrame.topAnchor, constant: 6),
-//            imageView.trailingAnchor.constraint(equalTo: phoneFrame.trailingAnchor, constant: -5),
-//            imageView.heightAnchor.constraint(equalTo: phoneFrame.heightAnchor, constant: -Padding.consecutive.cgFloat()),
-//            imageView.widthAnchor.constraint(equalTo: phoneFrame.widthAnchor, constant: -10),
 
     }
 }

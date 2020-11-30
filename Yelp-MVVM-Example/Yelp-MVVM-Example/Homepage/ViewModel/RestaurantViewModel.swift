@@ -5,9 +5,6 @@
 //  Created by timofey makhlay on 11/30/20.
 //
 
-import Foundation
-
-
 import UIKit
 
 class RestaurantViewModel {
@@ -117,49 +114,4 @@ class RestaurantViewModel {
         
         task.resume()
     }
-    
-    
-    //
-    //    /// Get all pages
-    //    func createPages() {
-    //
-    //        let session = URLSession.shared
-    //                let url = URL(string: "https://jsonplaceholder.typicode.com/posts")!
-    //                let task = session.dataTask(with: url, completionHandler: { data, response, error in
-    //                    // Check the response
-    //                    print(response)
-    //
-    //                    // Check if an error occured
-    //                    if error != nil {
-    //                        // HERE you can manage the error
-    //                        print(error)
-    //                        return
-    //                    }
-    //
-    //                    // Serialize the data into an object
-    //                    do {
-    //                        let json = try JSONDecoder().decode([Post].self, from: data! )
-    //                            //try JSONSerialization.jsonObject(with: data!, options: [])
-    //                        print(json)
-    //                    } catch {
-    //                        print("Error during JSON serialization: \(error.localizedDescription)")
-    //                    }
-    //
-    //                })
-    //                task.resume()
-    //
-    ////        let items = [
-    ////            Onboard(centerImgName: "Scangiphy", description: "1. Scan any receipt or bill", isGif: true),
-    ////            Onboard(centerImgName: "manualGiphy", description: "2. Assign items to friends", isGif: true),
-    ////            Onboard(centerImgName: "venmoText", description: "3. Send request!", isGif: false)
-    ////        ]
-    //
-    //        var vms = [RestaurantCellViewModel]()
-    //
-    //        for item in items {
-    //            vms.append(createCellViewModel(item: item) )
-    //        }
-    //        self.cellViewModels = vms
-    ////        self.reloadCollectionViewClosure?()
-    //    }
 }
