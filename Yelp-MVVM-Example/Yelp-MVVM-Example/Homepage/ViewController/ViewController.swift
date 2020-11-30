@@ -78,7 +78,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Create Cells one by one using this as a blueprint.
         let cell = tableView.dequeueReusableCell(withIdentifier: RestaurantCell.identifier, for: indexPath) as! RestaurantCell
 
-        //Getting the view model for a cell
+        // Getting the view model for a cell
         let cellVM = viewModel.getCellViewModel(at: indexPath)
         cell.restaurantCellViewModel = cellVM
         
