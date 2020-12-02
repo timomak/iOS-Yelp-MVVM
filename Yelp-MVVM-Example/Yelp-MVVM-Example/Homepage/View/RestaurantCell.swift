@@ -16,7 +16,8 @@ class RestaurantCell: UITableViewCell {
     /// Take the data from the Cell View Model to put into the UI
     var restaurantCellViewModel : RestaurantCellViewModel? {
         didSet {
-            self.restaurantImage.downloaded(from: restaurantCellViewModel!.previewImage, contentMode: .scaleAspectFill)
+            self.restaurantImage.image = restaurantCellViewModel?.previewImage
+            self.restaurantImage.contentMode = .scaleToFill
             
             self.nameTextView.text = restaurantCellViewModel?.name
             self.descriptionTextView.text = restaurantCellViewModel?.descriptionText

@@ -8,7 +8,6 @@
 import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
     /// View model property  in the VC
     lazy var viewModel: RestaurantViewModel = {
         return RestaurantViewModel()
@@ -55,10 +54,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         self.view.addSubview(tableView)
         
-        tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 32.0).isActive = true
+        tableView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 24.0).isActive = true
         tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -32.0).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32.0).isActive = true
+        tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -24.0).isActive = true
+        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         //tableView.register(BottomTableViewCell.self, forCellReuseIdentifier: BottomTableViewCell.identifier)
         

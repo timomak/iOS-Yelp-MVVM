@@ -9,12 +9,12 @@ import UIKit
 
 class RestaurantCellViewModel {
     let name: String
-    let previewImage: String
+    let previewImage: UIImage
     let descriptionText: String
     
-    init(name: String, imageURL: String, cost: String, reviews: Int) {
+    init(name: String, image: UIImage, cost: String, reviews: Int) {
         self.name = name
-        self.previewImage = imageURL
+        self.previewImage = image
         self.descriptionText = "\(cost), \(reviews) Reviews"
     }
 }

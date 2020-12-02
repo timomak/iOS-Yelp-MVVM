@@ -35,7 +35,17 @@ class RestaurantViewModel {
     /// Create cell view model from Onboarding Raw data
     func createCellViewModel(item: Restaurant) -> RestaurantCellViewModel {
         
-        return RestaurantCellViewModel(name: item.name, imageURL: item.imageURL, cost: item.cost, reviews: item.reviews)
+        // MARK: Load UIImage from URL
+        var newImage = UIImage()
+        let url = URL(string: item.imageURL)!
+        let data = try? Data(contentsOf: url)
+
+        if let imageData = data {
+            newImage = UIImage(data: imageData)!
+        }
+
+        
+        return RestaurantCellViewModel(name: item.name, image: newImage, cost: item.cost, reviews: item.reviews)
     }
     
     func getRestaurantRequest() {
